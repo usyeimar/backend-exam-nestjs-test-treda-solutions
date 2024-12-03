@@ -10,8 +10,8 @@ import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
 import { TransformInterceptor } from './shared/interceptors/transform.interceptor';
 import { JwtAuthGuard } from './shared/guards/jwt-auth.guard';
 import configuration from './config/configuration';
-import { SeederModule } from './database/seeders/seeder.module';
 import { UsersModule } from './modules/user/user.module';
+import { DatabaseSeederModule } from './database/seeders/database.module';
 
 @Module({
   imports: [
@@ -29,7 +29,7 @@ import { UsersModule } from './modules/user/user.module';
     UsersModule,
     ProductsModule,
     CategoriesModule,
-    SeederModule,
+    DatabaseSeederModule,
   ],
   providers: [
     {

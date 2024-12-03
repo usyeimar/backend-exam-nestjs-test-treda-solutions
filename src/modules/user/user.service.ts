@@ -1,4 +1,3 @@
-// src/modules/users/users.service.ts
 import {
   BadRequestException,
   Injectable,

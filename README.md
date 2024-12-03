@@ -14,7 +14,7 @@ API REST desarrollada con NestJS y PostgreSQL para gestión de inventario.
 
 ## 🔧 Requisitos Previos
 
-- Node.js (v18 o superior)
+- Node.js (v14 o superior)
 - pnpm (gestor de paquetes)
 - PostgreSQL
 - Docker (opcional)
@@ -58,9 +58,9 @@ pnpm start:dev
 ```sh
 docker run -it --rm \
   -e DB_HOST=localhost \
-  -e DB_USER=myuser \
-  -e DB_PASSWORD=mypassword \
-  -e DB_NAME=myDB \
+  -e DB_USER=postgres \
+  -e DB_PASSWORD= \
+  -e DB_NAME=test_db \
   -e DB_PORT=5432 \
   -e JWT_SECRET=myjwtsecret \
   -e JWT_EXPIRATION_TIME=3600s \
@@ -102,7 +102,7 @@ docker-compose down
 ### 🔐 Autenticación
 
 ```http
-POST /auth/login
+POST /api/v1/auth/login
 Content-Type: application/json
 
 {

@@ -65,6 +65,12 @@ export class User extends Model {
   })
   bio: string;
 
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  avatar: string;
+
   toJSON(): object {
     const values = super.toJSON();
     delete values.password;

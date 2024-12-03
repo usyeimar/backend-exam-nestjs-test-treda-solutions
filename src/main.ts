@@ -4,6 +4,7 @@ import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
 import helmet from 'helmet';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { DatabaseSeeder } from './database/seeders/database.seeder';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -47,6 +48,10 @@ async function bootstrap() {
   app.getHttpAdapter().get('/', (req, res) => {
     res.redirect('/docs');
   });
+
+  //Run seeders
+  const seeder = app.get(DatabaseSeeder);
+  await seeder.seed();
 
   await app.listen(process.env.PORT || 3000);
 
