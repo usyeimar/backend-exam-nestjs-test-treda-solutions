@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: usyeimar/backend-exam-nestjs-test-treda-solutions
+      IMAGE_NAME: usyeima/backend-exam-nestjs-test-treda-solutions
 
     steps:
       - name: Checkout repository
