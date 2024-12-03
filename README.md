@@ -49,11 +49,14 @@ pnpm start:dev
 
 5. **🌐 Verificar instalación**
 
-- API: http://localhost:3000
+- API en Local: http://localhost:3000
 - Documentación Swagger: http://localhost:3000/docs
 - Documentacion de Postman:https://documenter.getpostman.com/view/14969501/2sAYBYgqJN
+- URL API en Producción: https://backend-exam-nestjs-test-treda-solutions.onrender.com
 
 ### 🏃 Ejecutando con Docker
+
+Si deseas ejecutar la API en un contenedor Docker, puedes hacerlo con el siguiente comando:
 
 ```sh
 docker run -it --rm -p 3000:3000 \
@@ -61,7 +64,12 @@ docker run -it --rm -p 3000:3000 \
   -e JWT_SECRET=myjwtsecret \
   -e JWT_EXPIRATION_TIME=3600s \
   usyeima/backend-exam-nestjs-test-treda-solutions
+  
 ```
+
+👆 Esta imagen de Docker se encuentra en Docker
+Hub: [usyeima/backend-exam-nestjs-test-treda-solutions](https://hub.docker.com/r/usyeima/backend-exam-nestjs-test-treda-solutions),
+y es la manera mas rapida de ejecutar la API.
 
 ## 🗄️ Variables de Entorno
 
@@ -78,7 +86,7 @@ docker run -it --rm -p 3000:3000 \
 | `JWT_EXPIRATION` | Tiempo de expiración JWT           | `24h`             |
 |                  |                                    |                   |
 
-## 🛠️ Docker
+## 🛠️ Docker Compose
 
 ### Desarrollo
 
@@ -87,7 +95,7 @@ docker run -it --rm -p 3000:3000 \
 docker-compose up -d
 
 # Ver logs
-docker-compose logs -f api
+docker-compose logs -f backend
 
 # Detener servicios
 docker-compose down
@@ -101,9 +109,16 @@ docker-compose down
 POST /api/v1/auth/login
 Content-Type: application/json
 
+//Usuario admin
 {
   "email": "admin@example.com",
   "password": "admin123"
+}
+
+//Usuario normal
+{
+  "email": "user@example.com",
+  "password": "user123"
 }
 ```
 
