@@ -11,6 +11,7 @@ import { TransformInterceptor } from './shared/interceptors/transform.intercepto
 import { JwtAuthGuard } from './shared/guards/jwt-auth.guard';
 import configuration from './config/configuration';
 import { SeederModule } from './database/seeders/seeder.module';
+import { UsersModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { SeederModule } from './database/seeders/seeder.module';
       inject: [ConfigService],
     }),
     AuthModule,
+    UsersModule,
     ProductsModule,
     CategoriesModule,
     SeederModule,

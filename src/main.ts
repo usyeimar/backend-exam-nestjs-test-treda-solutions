@@ -37,7 +37,6 @@ async function bootstrap() {
     .setTitle('Inventory API')
     .setDescription('The Inventory Management API description')
     .setContact('Inventory API', null, 'yeimar112003@gmail.com')
-    .addTag('inventory')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

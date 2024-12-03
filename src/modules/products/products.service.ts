@@ -12,9 +12,22 @@ export class ProductsService {
   constructor(
     @InjectModel(Product)
     private productModel: typeof Product,
+    @InjectModel(Category)
+    private categoryModel: typeof Category,
   ) {}
 
   async create(createProductDto: CreateProductDto): Promise<Product> {
+    if (createProductDto.categoryId) {
+      const category = await this.categoryModel.findByPk(
+        createProductDto.categoryId,
+      );
+      if (!category) {
+        throw new NotFoundException(
+          `Category with ID ${createProductDto.categoryId} not found`,
+        );
+      }
+    }
+
     return this.productModel.create({ ...createProductDto });
   }
 
@@ -110,7 +123,9 @@ export class ProductsService {
     updateProductDto: UpdateProductDto,
   ): Promise<Product> {
     const product = await this.findOne(id);
-    return product.update(updateProductDto);
+    await product.update(updateProductDto);
+
+    return this.findOne(id);
   }
 
   async remove(id: string): Promise<void> {

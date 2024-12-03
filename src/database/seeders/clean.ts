@@ -1,6 +1,6 @@
-import { User } from '../../modules/auth/entities/user.entity';
 import { Category } from '../../modules/categories/entities/category.entity';
 import { Product } from '../../modules/products/entities/product.entity';
+import { User } from "../../modules/user/entities/user.entity";
 
 export async function clean() {
   try {

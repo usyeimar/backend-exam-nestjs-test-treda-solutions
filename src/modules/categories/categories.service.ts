@@ -44,4 +44,9 @@ export class CategoriesService {
     const category = await this.findOne(id);
     await category.destroy();
   }
+
+  async isCategoryValid(categoryId: string) {
+    const category = await this.categoryModel.findByPk(categoryId);
+    return !!category;
+  }
 }
