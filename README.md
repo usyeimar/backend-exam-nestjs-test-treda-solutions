@@ -56,31 +56,27 @@ pnpm start:dev
 ### 🏃 Ejecutando con Docker
 
 ```sh
-docker run -it --rm \
-  -e DB_HOST=localhost \
-  -e DB_USER=postgres \
-  -e DB_PASSWORD= \
-  -e DB_NAME=test_db \
-  -e DB_PORT=5432 \
+docker run -it --rm -p 3000:3000 \
+  -e DB_URL=postgresql://backend_exam_nestjs_test_treda_solutions_user:MnXVowfAXhVLALE2B8dBU9DNhKvKuJkA@dpg-ct770fi3esus73bnkhg0-a.oregon-postgres.render.com/backend_exam_nestjs_test_treda_solutions \
   -e JWT_SECRET=myjwtsecret \
   -e JWT_EXPIRATION_TIME=3600s \
-  usyeimar/backend-exam-nestjs-test-treda-solutions
-
-
+  usyeima/backend-exam-nestjs-test-treda-solutions
 ```
 
 ## 🗄️ Variables de Entorno
 
-| Variable         | Descripción                    | Valor por defecto |
-|------------------|--------------------------------|-------------------|
-| `PORT`           | Puerto del servidor            | `3000`            |
-| `DB_HOST`        | Host de la base de datos       | `localhost`       |
-| `DB_PORT`        | Puerto de la base de datos     | `5432`            |
-| `DB_USER`        | Usuario de la base de datos    | `postgres`        |
-| `DB_PASSWORD`    | Contraseña de la base de datos | -                 |
-| `DB_NAME`        | Nombre de la base de datos     | `inventory_db`    |
-| `JWT_SECRET`     | Secreto para tokens JWT        | -                 |
-| `JWT_EXPIRATION` | Tiempo de expiración JWT       | `24h`             |
+| Variable         | Descripción                        | Valor por defecto |
+|------------------|------------------------------------|-------------------|
+| `PORT`           | Puerto del servidor                | `3000`            |
+| `DB_URL`         | URL de conexión a la base de datos | -                 |
+| `DB_HOST`        | Host de la base de datos           | `localhost`       |
+| `DB_PORT`        | Puerto de la base de datos         | `5432`            |
+| `DB_USER`        | Usuario de la base de datos        | `postgres`        |
+| `DB_PASSWORD`    | Contraseña de la base de datos     | -                 |
+| `DB_NAME`        | Nombre de la base de datos         | `inventory_db`    |
+| `JWT_SECRET`     | Secreto para tokens JWT            | -                 |
+| `JWT_EXPIRATION` | Tiempo de expiración JWT           | `24h`             |
+|                  |                                    |                   |
 
 ## 🛠️ Docker
 
@@ -161,14 +157,6 @@ pnpm start:dev
 pnpm build
 pnpm start:prod
 
-# Tests
-pnpm test          # unit tests
-pnpm test:e2e      # end-to-end tests
-pnpm test:cov      # test coverage
-
-# Base de datos
-pnpm seed          # poblar base de datos
-pnpm seed:fresh    # limpiar y poblar
 ```
 
 ## 📝 Guías Adicionales
